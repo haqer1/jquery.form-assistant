@@ -1,5 +1,5 @@
 {
-  "name": "jquery.FormAssistant",
+  "name": "jquery.form-assistant",
   "version": "1.0.0",
   "description": "jQuery plugin simplifying detection of form field modifications on old & new browsers",
   "main": "dist/jquery.FormAssistant.js",
