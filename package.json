@@ -1,10 +1,9 @@
 {
   "name": "jquery.form-assistant",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers",
   "main": "dist/jquery.FormAssistant.js",
   "scripts": {
-    "test": "echo \"no test specified\" && cp src/*.* dist/"
   },
   "repository": {
     "type": "git",

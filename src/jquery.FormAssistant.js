@@ -58,7 +58,7 @@ if ( !jQuery.browser ) {
  * @option oldBrowserTimeoutDelay	Timeout delay for old browser change callbacks.
  * 
  * @author Resat SABIQ
- * @version: 1.0.0
+ * @version: 1.0.2
  */
 (function( $ ) {
   $.extend({
