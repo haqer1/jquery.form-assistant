@@ -1,4 +1,4 @@
-# jquery.FormAssistant
+# jquery.form-assistant
 
 > jquery.formA-assistant is a simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers. Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event
 
