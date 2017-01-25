@@ -1,0 +1,27 @@
+{
+  "name": "jquery.FormAssistant",
+  "version": "1.0.0",
+  "description": "jQuery plugin simplifying detection of form field modifications on old & new browsers",
+  "main": "dist/jquery.FormAssistant.js",
+  "scripts": {
+    "test": "echo \"no test specified\" && cp src/*.* dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haqer1/jquery.FormAssistant.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "javascript",
+    "browser"
+  ],
+  "author": "Reşat SABIQ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haqer1/jquery.FormAssistant/issues"
+  },
+  "homepage": "https://github.com/haqer1/jquery.FormAssistant",
+  "readme": "# jquery.FormAssistant\n\n> jquery.FormAssistant is a simple jQuery plugin simplifying detection of form field modifications on old & new browsers. Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event\n\n## Including jquery.FormAssistant\n\n### Browser\n\n#### Script tag\n\n```html\n<script src=\"https://github.com/haqer1/src/jquery.FormAssistant.js\"></script>\n```",
+  "readmeFilename": "README.md"
+}
