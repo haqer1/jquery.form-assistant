@@ -1,14 +1,14 @@
 {
   "name": "jquery.form-assistant",
   "version": "1.0.0",
-  "description": "jQuery plugin simplifying detection of form field modifications on old & new browsers",
+  "description": "A simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers",
   "main": "dist/jquery.FormAssistant.js",
   "scripts": {
     "test": "echo \"no test specified\" && cp src/*.* dist/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/haqer1/jquery.FormAssistant.git"
+    "url": "https://github.com/haqer1/jquery.form-assistant.git"
   },
   "keywords": [
     "jquery-plugin",
@@ -19,9 +19,9 @@
   "author": "Reşat SABIQ",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haqer1/jquery.FormAssistant/issues"
+    "url": "https://github.com/haqer1/jquery.form-assistant/issues"
   },
-  "homepage": "https://github.com/haqer1/jquery.FormAssistant",
-  "readme": "# jquery.FormAssistant\n\n> jquery.FormAssistant is a simple jQuery plugin simplifying detection of form field modifications on old & new browsers. Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event\n\n## Including jquery.FormAssistant\n\n### Browser\n\n#### Script tag\n\n```html\n<script src=\"https://github.com/haqer1/src/jquery.FormAssistant.js\"></script>\n```",
+  "homepage": "https://github.com/haqer1/jquery.form-assistant",
+  "readme": "# jquery.form-assistant\n\n> jquery.form-assistant is a simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers. Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event\n\n## Including jquery.form-assistant\n\n### Browser\n\n#### Script tag\n\n```html\n<script src=\"https://rawgit.com/haqer1/jquery.form-assistant/master/src/jquery.FormAssistant.js\"></script>\n```\n\n## Demo\n```html\nhttps://rawgit.com/haqer1/jquery.form-assistant/master/demo/form-assistant.html",
   "readmeFilename": "README.md"
 }
