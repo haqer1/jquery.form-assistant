@@ -13,6 +13,4 @@
 ```
 
 ## Demo
-```html
 https://rawgit.com/haqer1/jquery.form-assistant/master/demo/form-assistant.html
-```
