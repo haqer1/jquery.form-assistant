@@ -68,10 +68,10 @@ jQuery(document).ready(function() {
 var i = 0;
 jQuery("#form1").FormAssistant({
    onChange: function(element, event) {
-	   var v = element.id.charAt(0) == 'r' ? element.value : "";
+	   var v = /*element.id.charAt(0) == 'r' ?*/ element.value /*: ""*/;
 		 var d = new Date();
      document.getElementById("t").innerHTML = 
-	++i+ ". " +d.getMinutes()+ ':' +d.getSeconds()+ ':' +d.getMilliseconds()+ " " +element+ " (#" +element.id+ "): " +event.type + " " +v+ "<br/>" +document.getElementById("t").innerHTML;
+	++i+ ". " +d.getMinutes()+ ':' +d.getSeconds()+ ':' +d.getMilliseconds()+ " " +element+ " (#" +element.id+ "): " +event.type + " \"" +v+ "\"<br/>" +document.getElementById("t").innerHTML;
 	   if (v.length > 0) {
 		   if (element.id="r1") jQuery("#r2").prop("checked", false);
 		   else jQuery("#r1").prop("checked", false);
