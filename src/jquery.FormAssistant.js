@@ -58,7 +58,7 @@ if ( !jQuery.browser ) {
  * @option oldBrowserTimeoutDelay	Timeout delay for old browser change callbacks.
  * 
  * @author Resat SABIQ
- * @version: 1.0.2
+ * @version: 1.0.5
  */
 (function( $ ) {
   $.extend({
@@ -106,9 +106,12 @@ if ( !jQuery.browser ) {
        * This method may need to be called for reliable detection of value changes 
        * after a programmatic change of the value (for instance, for select elements).
        */
-      this.onProgrammaticChange = function(element, value) {
+      this.onProgrammaticChange = function(element, value, prop) {
         var data = ensureData(element);
-        data.value = value;
+	if (prop) {
+		data[prop] = value;
+	} else
+		data.value = value;
       }
       
       function ensureData(element) {
@@ -119,19 +122,38 @@ if ( !jQuery.browser ) {
         }
         return data;
       }
+	
+      function isChanged(element, data) {
+         var checkedDifferent = false;
+         if (element.nodeName.toLowerCase() == "input") {
+            var type = element.getAttribute("type");
+            if (type == "checkbox" || type == "radio") {
+               checkedDifferent = element.checked != data.checked;
+            }
+         }
+         return (element.value != data.value && !(data.value == undefined && element.value == "")) 
+            || checkedDifferent;
+      }
+
+      function uncheckRadioSiblings(element) {
+         jQuery("input[name=" +element.name).each(function() {
+            if (this.value != element.value) {
+               jQuery(this).prop("checked", false);
+               ensureData(this).checked = false;
+            }
+         });
+      }
 
       function changeListener(element, event) {
         var data = ensureData(element);
-        var changed = element.value != data.value;
-        if (changed && !(data.value == undefined && element.value == "")) {
-          data.value = element.value;
-	        if (element.nodeName.toLowerCase() == "input") {
-		        var type = element.getAttribute("type") 
-		      if (type == "checkbox" || type == "radio")
-			      data.value += element.getAttribute("checked");
-	        }
-          // not clearing validation for reference
-          settings.onChange(element, event);
+        if (isChanged(element, data)) {
+            var type = element.getAttribute("type");
+            if (type == "radio") 
+               uncheckRadioSiblings(element)
+            data.value = element.value;
+            data.checked = element.checked;
+            // not clearing validation for reference
+            settings.onChange(element, event);
         } 
       }
 

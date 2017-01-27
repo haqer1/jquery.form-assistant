@@ -28,8 +28,8 @@ Form:
 </tr>
 <tr>
     <td>
-	<label><input type="radio" name="r1" id="r1"  value="r1v1" checked="checked"/>Radio 1;</label>
-	<label><input type="radio" name="r1" id="r2" value="r1v2" />Radio 2;</label>
+	<label><input type="radio" name="rg1" id="r1"  value="r1v1" checked="checked"/>Radio 1;</label>
+	<label><input type="radio" name="rg1" id="r2" value="r1v2" />Radio 2;</label>
     </td>
 </tr>
 <tr>
@@ -72,10 +72,6 @@ jQuery("#form1").FormAssistant({
 		 var d = new Date();
      document.getElementById("t").innerHTML = 
 	++i+ ". " +d.getMinutes()+ ':' +d.getSeconds()+ ':' +d.getMilliseconds()+ " " +element+ " (#" +element.id+ "): " +event.type + " \"" +v+ "\"<br/>" +document.getElementById("t").innerHTML;
-	   if (v.length > 0) {
-		   if (element.id="r1") jQuery("#r2").prop("checked", false);
-		   else jQuery("#r1").prop("checked", false);
-	   }
    }
 });
 });
