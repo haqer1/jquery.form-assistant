@@ -122,7 +122,8 @@ if ( !jQuery.browser ) {
 
       function changeListener(element, event) {
         var data = ensureData(element);
-        if (element.value != data.value) {
+        var changed = element.value != data.value && !(data.value == undefined && element.value == "");
+        if (changed) {
           data.value = element.value;
 	        if (element.nodeName.toLowerCase() == "input") {
 		        var type = element.getAttribute("type") 
