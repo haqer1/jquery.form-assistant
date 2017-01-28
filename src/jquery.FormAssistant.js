@@ -49,13 +49,15 @@ if ( !jQuery.browser ) {
  *   }
  * });
  * 
- * @param options	custom options
- * @option onChange (required)		Change callback.
- * @option inputSelector			Form element types to capture changes in.
- * @option inputNotSelector			Form element types not to capture changes in.
- * @option eventsBound				Main events to bind (old browsers are bound for keyup unconditionally).
- * @option dataKey					Key to use for data storage.
- * @option oldBrowserTimeoutDelay	Timeout delay for old browser change callbacks.
+ * @param options                 Custom options
+ * @option onChange (required)    Change callback.
+ * @option inputSelector          Form element types to capture changes in.
+ * @option inputNotSelector       Form element types not to capture changes in.
+ * @option eventsBound            Main events to bind (old browsers are bound for keyup unconditionally).
+ * @option dataKey                Key to use for data storage.
+ * @option oldBrowserTimeoutDelay Timeout delay for old browser change callbacks.
+ *
+ * @see  #onProgrammaticChange
  * 
  * @author Resat SABIQ
  * @version: 1.0.5
@@ -67,7 +69,8 @@ if ( !jQuery.browser ) {
       var defaults = {
         inputSelector:    "input, textarea, select",
         inputNotSelector: "input[type='button'], input[type='hidden'], input[type='image'], input[type='reset'], input[type='submit']",
-        // change: required to detect submit click, and navigation away; keypress: required to detect Enter; focus: unnecessary; paste: doesn't get the new value, so probably not needed
+        // change: required to detect submit click, and navigation away; keypress: required to detect Enter; 
+        // focus: unnecessary; paste: doesn't get the new value, so probably not needed
         eventsBound:      "change keypress textInput input",
         dataKey:          NAME,
         onChange:         function (element) { 
@@ -108,10 +111,10 @@ if ( !jQuery.browser ) {
        */
       this.onProgrammaticChange = function(element, value, prop) {
         var data = ensureData(element);
-	if (prop) {
-		data[prop] = value;
-	} else
-		data.value = value;
+        if (prop) {
+          data[prop] = value;
+        } else
+          data.value = value;
       }
       
       function ensureData(element) {
@@ -122,38 +125,38 @@ if ( !jQuery.browser ) {
         }
         return data;
       }
-	
+
       function isChanged(element, data) {
-         var checkedDifferent = false;
-         if (element.nodeName.toLowerCase() == "input") {
-            var type = element.getAttribute("type");
-            if (type == "checkbox" || type == "radio") {
-               checkedDifferent = element.checked != data.checked;
-            }
-         }
-         return (element.value != data.value && !(data.value == undefined && element.value == "")) 
-            || checkedDifferent;
+        var checkedDifferent = false;
+        if (element.nodeName.toLowerCase() == "input") {
+          var type = element.getAttribute("type");
+          if (type == "checkbox" || type == "radio") {
+            checkedDifferent = element.checked != data.checked;
+          }
+        }
+        return (element.value != data.value && !(data.value == undefined && element.value == "")) 
+          || checkedDifferent;
       }
 
       function uncheckRadioSiblings(element) {
-         jQuery("input[name=" +element.name).each(function() {
-            if (this.value != element.value) {
-               jQuery(this).prop("checked", false);
-               ensureData(this).checked = false;
-            }
-         });
+        jQuery("input[name=" +element.name).each(function() {
+          if (this.value != element.value) {
+            jQuery(this).prop("checked", false);
+            ensureData(this).checked = false;
+          }
+        });
       }
 
       function changeListener(element, event) {
         var data = ensureData(element);
         if (isChanged(element, data)) {
-            var type = element.getAttribute("type");
-            if (type == "radio") 
-               uncheckRadioSiblings(element)
-            data.value = element.value;
-            data.checked = element.checked;
-            // not clearing validation for reference
-            settings.onChange(element, event);
+          var type = element.getAttribute("type");
+          if (type == "radio") 
+             uncheckRadioSiblings(element)
+          data.value = element.value;
+          data.checked = element.checked;
+          // not clearing validation for reference
+          settings.onChange(element, event);
         } 
       }
 
