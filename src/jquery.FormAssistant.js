@@ -60,7 +60,7 @@ if ( !jQuery.browser ) {
  * @see  #onProgrammaticChange
  * 
  * @author Resat SABIQ
- * @version: 1.0.5
+ * @version: 1.0.6
  */
 (function( $ ) {
   $.extend({
