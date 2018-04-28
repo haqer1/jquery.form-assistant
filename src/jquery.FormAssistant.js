@@ -39,7 +39,7 @@ if ( !jQuery.browser ) {
 }
 /**
  * Form assistant jquery plugin. For now, usable for notification of form element changes 
- * (including support for forms with (some) pre-populated fields &/or a parent element containing more than 1 form). 
+ * (including support for forms with (some) pre-populated fields &/or forms reloaded using AJAX &/or a parent element containing more than 1 form). 
  * Supports old and new browsers. For old browsers, a timeout callback is used to capture some 
  * changes asynchronously (mouse-driven selections on context menu for text input and textarea).
  * 
