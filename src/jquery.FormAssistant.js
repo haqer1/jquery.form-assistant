@@ -38,7 +38,8 @@ if ( !jQuery.browser ) {
 	jQuery.browser = browser;
 }
 /**
- * Form assistant jquery plugin. For now, usable for notification of form element changes. 
+ * Form assistant jquery plugin. For now, usable for notification of form element changes 
+ * (including support for forms with (some) pre-populated fields &/or a parent element containing more than 1 form). 
  * Supports old and new browsers. For old browsers, a timeout callback is used to capture some 
  * changes asynchronously (mouse-driven selections on context menu for text input and textarea).
  * 
@@ -59,8 +60,8 @@ if ( !jQuery.browser ) {
  *
  * @see  #onProgrammaticChange
  * 
- * @author Resat SABIQ
- * @version: 1.0.7
+ * @author Reşat SABIQ
+ * @version: 1.1.0
  */
 (function( $ ) {
   $.extend({
@@ -79,6 +80,7 @@ if ( !jQuery.browser ) {
         oldBrowserTimeoutDelay: 200
       };
       var settings = null;
+      var loggingSupported = console.log ? true : false;
 
       /**
        * Constructor.
@@ -99,6 +101,17 @@ if ( !jQuery.browser ) {
         // Up-to-date browser: 
         return this.each(function() {
           var collection = getInnerElementCollection(this);
+          collection.each(function(index) {
+            var element = collection[index];
+            if (loggingSupported)
+              console.log("FormAssistant: " +element);
+            var data = ensureData(element);
+            data.value = element.value;
+            var type = element.getAttribute("type");
+            if (type == "checkbox" || type == "radio") 
+              data.checked = element.checked;
+          });
+
           collection.bind(settings.eventsBound, function(event) {
             changeListener(this, event);
           });
@@ -128,14 +141,22 @@ if ( !jQuery.browser ) {
 
       function isChanged(element, data) {
         var checkedDifferent = false;
+        var additionalLogging = "";
         if (element.nodeName.toLowerCase() == "input") {
           var type = element.getAttribute("type");
           if (type == "checkbox" || type == "radio") {
             checkedDifferent = element.checked != data.checked;
+            if (checkedDifferent && loggingSupported)
+              additionalLogging = " '" +element.checked+ "' != '" +data.checked+ "'";
           }
         }
-        return (element.value != data.value && !(data.value == undefined && element.value == "")) 
-          || checkedDifferent;
+        var valueChanged = element.value != data.value;
+        var changed = (valueChanged && !(data.value == undefined && element.value == "")) || checkedDifferent;
+        if (changed && loggingSupported) {
+          var sign = valueChanged ? " != " : " == ";
+          console.log("FormAssistant: " +element.id+ " '" +element.value+ "'" +sign+ "'" +data.value+ "'" +additionalLogging);
+        }
+        return changed;
       }
 
       function uncheckRadioSiblings(element) {

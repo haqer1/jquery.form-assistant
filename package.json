@@ -1,7 +1,7 @@
 {
   "name": "jquery.form-assistant",
-  "version": "1.0.7",
-  "description": "A simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers",
+  "version": "1.1.0",
+  "description": "A jQuery plugin that currently can be used to easily detect modification(s) in any or all form fields on old & new browsers (forms with (some) pre-populated fields are supported as well).",
   "main": "dist/jquery.FormAssistant.js",
   "scripts": {
   },
@@ -21,6 +21,6 @@
     "url": "https://github.com/haqer1/jquery.form-assistant/issues"
   },
   "homepage": "https://github.com/haqer1/jquery.form-assistant",
-  "readme": "# jquery.form-assistant\n\n> jquery.form-assistant is a simple jQuery plugin that currently can be used to simplify detection of form field modifications on old & new browsers. Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event\n\n## Including jquery.form-assistant\n\n### Browser\n\n#### Script tag\n\n```html\n<script src=\"https://rawgit.com/haqer1/jquery.form-assistant/master/src/jquery.FormAssistant.js\"></script>\n```\n\n## Demo\nhttps://rawgit.com/haqer1/jquery.form-assistant/master/demo/form-assistant.html",
+  "readme": "# jquery.form-assistant\n\n> jquery.form-assistant is a jQuery plugin that currently can be used to easily detect modification(s) in any or all form fields on old & new browsers (forms with (some) pre-populated fields are supported as well). Relevant discussion: http://stackoverflow.com/questions/6458840/on-input-change-event\n\n## Including jquery.form-assistant\n\n### Browser\n\n#### Script tag\n\n```html\n<script src=\"https://rawgit.com/haqer1/jquery.form-assistant/master/src/jquery.FormAssistant.js\"></script>\n```\n\n## Demo\nhttps://rawgit.com/haqer1/jquery.form-assistant/master/demo/form-assistant.html",
   "readmeFilename": "README.md"
 }
